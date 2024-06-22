@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail identifier</title>
+    <link rel="stylesheet" href="static/r_style.css">
+</head>
+<body class="{% if prediction == '1' %}spam-blink{% endif %}">
+    {% if prediction == "0" %}
+    <center><p class="ham" style="margin-top: 300px; font-size: 50px;">Your mail is :- Ham</p></center>
+    {% else %}
+    <center><p class="spam" style="margin-top: 300px; font-size: 50px;">Your mail is :- Spam</p></center>
+    {% endif %}
+    <script>
+        // Function to make the screen blink once
+        function blinkScreen() {
+            const body = document.body;
+            if (body.classList.contains('spam-blink')) {
+                setTimeout(() => {
+                    body.classList.add('blink');
+                }, 50); // Delay to ensure the class is added
+                setTimeout(() => {
+                    body.classList.remove('blink');
+                }, 500); // Delay to remove the class
+            }
+        }
+
+        // Call the function to blink the screen
+        blinkScreen();
+    </script>
+</body>
+</html>
